@@ -8,10 +8,13 @@ def num_primo(n):
 
 def primo(n):
     numeros_primos = []
-    for i in range(0, n+1):
-        if num_primo(i):
+    cont, i = 0, 0
+    while cont < n:
+        i += 1
+        p = num_primo(i)
+        if p:
             numeros_primos.append(i)
-
+            cont += 1
     return(numeros_primos)
 
 n = int(input('Digite um valor: '))
@@ -25,8 +28,6 @@ if n > 1:
 soma = 0
 
 listaprimos = primo(n)
-for i in range(0, n+1):
-    if num_primo(i):
-        soma += i
+
 print(listaprimos)
-print(f'Soma dos números primos é {soma}')
+print(f'Soma dos números primos é {sum(listaprimos)}')
